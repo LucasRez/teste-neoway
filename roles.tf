@@ -23,9 +23,6 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
   name = "ecs-instance-profile"
   path = "/"
   role = aws_iam_role.ecs_instance_role.id
-  provisioner "local-exec" {
-    command = "ping -n 10 127.0.0.1"
-  }
 }
 
 resource "aws_iam_role" "ecs_service_role" {

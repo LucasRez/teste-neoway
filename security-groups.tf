@@ -11,16 +11,16 @@ resource "aws_security_group" "ec2_instances_sg" {
   }
 
   ingress {
-    protocol  = "tcp"
-    from_port = 22
-    to_port   = 22
-    cidr_blocks = module.vpc.private_subnets_cidr_blocks
+    protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks = module.vpc.public_subnets_cidr_blocks
   }
 
   ingress {
-    from_port         = 80
-    protocol          = "tcp"
-    to_port           = 80
+    from_port   = 80
+    protocol    = "tcp"
+    to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
   }
 

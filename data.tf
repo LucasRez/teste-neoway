@@ -6,13 +6,13 @@ data "aws_ami" "latest_ecs" {
   most_recent = true
 
   filter {
-    name = "name"
+    name   = "name"
     values = [
       "amzn2-ami-ecs-*"]
   }
 
   filter {
-    name = "virtualization-type"
+    name   = "virtualization-type"
     values = [
       "hvm"]
   }

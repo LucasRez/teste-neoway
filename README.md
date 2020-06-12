@@ -15,7 +15,13 @@ Para acessar as instancias via ssh é necessario primeiramente acessar o bastion
 
 A partir do bastion host é possível acessar as instancias rodando a aplicação por meio de ssh utilizando seus respectivos ips privados.
 
-Para visualizar informações de monitoramento, deve-se acessar o painel do AWS CloudWatch
+É necessário anexar a autenticação ao fazer ssh no bastion host
+
+```
+ssh -A -i <chave_ssh_privada> ec2-user@<ip_do_bastion_host>
+```
+
+Para visualizar informações de monitoramento, deve-se acessar o painel do AWS CloudWatch. Não foi implementada nenhuma solução personalizada.
 
 ## Configuração
 
@@ -55,7 +61,7 @@ bastion_host_public_ip = 22.2.2.2
 Para desfazer todas as alterações execute o seguinte comando:
 
 ```
-terraform plan -var "public_key_path=<Caminho/para/sua/chave/publica.pub>"
+terraform destroy -var "public_key_path=<Caminho/para/sua/chave/publica.pub>"
 ```
 
 Digite "yes" para remover todos os recursos criados.

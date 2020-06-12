@@ -5,4 +5,8 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids      = [aws_security_group.bastion_instance_sg.id]
   subnet_id                   = element(module.vpc.public_subnets, 0)
   associate_public_ip_address = true
+  
+  tags = {
+    Name = "yawoen-bastion-host"
+  }
 }

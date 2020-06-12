@@ -1,10 +1,10 @@
 data "aws_ecs_task_definition" "test" {
   task_definition = aws_ecs_task_definition.yawoen_whoami.family
-  depends_on = [aws_ecs_task_definition.yawoen_whoami]
+  depends_on      = [aws_ecs_task_definition.yawoen_whoami]
 }
 
 resource "aws_ecs_task_definition" "yawoen_whoami" {
-  family = "yawoen-whoami"
+  family                = "yawoen-whoami"
   container_definitions = <<DEFINITION
   [
     {

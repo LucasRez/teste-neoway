@@ -15,12 +15,6 @@ Para acessar as instancias via ssh é necessario primeiramente acessar o bastion
 
 A partir do bastion host é possível acessar as instancias rodando a aplicação por meio de ssh utilizando seus respectivos ips privados.
 
-É necessário anexar a autenticação ao fazer ssh no bastion host
-
-```
-ssh -A -i <chave_ssh_privada> ec2-user@<ip_do_bastion_host>
-```
-
 Para visualizar informações de monitoramento, deve-se acessar o painel do AWS CloudWatch. Não foi implementada nenhuma solução personalizada.
 
 ## Configuração
@@ -65,3 +59,13 @@ terraform destroy -var "public_key_path=<Caminho/para/sua/chave/publica.pub>"
 ```
 
 Digite "yes" para remover todos os recursos criados.
+
+## Acessando as instancias da rede privada por ssh
+
+É necessário anexar a autenticação ao fazer ssh no bastion host
+
+```
+ssh-add -k <chave_ssh_privada>
+ssh -A ec2-user@<ip_do_bastion_host>
+[ec2-user@ip] ssh ec2-user@<ip_privado_da_instancia_ec2>
+```

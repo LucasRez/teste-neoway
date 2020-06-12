@@ -1,4 +1,4 @@
-# teste-neoway
+# Teste Neoway
 Código utilizado para prover a infraestrutura como definido no teste
 
 Foi utilizado terraform versão 0.12
@@ -27,7 +27,7 @@ aws_access_key_id = <AWS_KEY_ID>
 aws_secret_access_key = <AWS_SECRET_KEY>
 ```
 
-Também é necessário gerar um par de chaves ssh para cadastrar o par de chaves na AWS
+Também é necessário gerar um par de chaves ssh para cadastrar o par de chaves na AWS:
 
 ```
 ssh-keygen -m PEM
@@ -35,7 +35,7 @@ ssh-keygen -m PEM
 
 ## Construindo a Infraestrutura
 
-Para construir a infraestrutura basta executar os seguintes comandos
+Para construir a infraestrutura basta executar os seguintes comandos:
 
 ```
 terraform init
@@ -43,7 +43,7 @@ terraform plan -var "public_key_path=<Caminho/para/sua/chave/publica.pub>" -out 
 terraform apply tfplan
 ```
 
-Ao fim da execução será exibido o nome dns da aplicação e o ip do bastion host
+Ao fim da execução será exibido o nome dns da aplicação e o ip do bastion host.
 
 ```
 app_dns_name = dominio-da-aplicacao.com
@@ -62,7 +62,7 @@ Digite "yes" para remover todos os recursos criados.
 
 ## Acessando as instancias da rede privada por ssh
 
-É necessário anexar a autenticação ao fazer ssh no bastion host
+É necessário anexar a autenticação ao fazer ssh no bastion host com a chave ssh gerada na configuração desse projeto.
 
 ```
 ssh-add -k <chave_ssh_privada>
